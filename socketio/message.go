@@ -1,5 +1,6 @@
 // Copyright (c) 2024 Yousong Zhou
 // SPDX-License-Identifier: MIT
+
 package socketio
 
 import (
@@ -12,13 +13,13 @@ import (
 )
 
 const (
-	PacketTypeCONNECT       = '0' // Used during the [connection to a namespace](#connection-to-a-namespace).
-	PacketTypeDISCONNECT    = '1' // Used when [disconnecting from a namespace](#disconnection-from-a-namespace).
-	PacketTypeEVENT         = '2' // Used to [send data](#sending-and-receiving-data) to the other side.
-	PacketTypeACK           = '3' // Used to [acknowledge](#acknowledgement) an event.
-	PacketTypeCONNECT_ERROR = '4' // Used during the [connection to a namespace](#connection-to-a-namespace).
-	PacketTypeBINARY_EVENT  = '5' // Used to [send binary data](#sending-and-receiving-data) to the other side.
-	PacketTypeBINARY_ACK    = '6' // Used to [acknowledge](#acknowledgement) an event (the response includes binary data).
+	PacketTypeCONNECT       = '0' // Used during the connection to a namespace.
+	PacketTypeDISCONNECT    = '1' // Used when disconnecting from a namespace.
+	PacketTypeEVENT         = '2' // Used to send data to the other side.
+	PacketTypeACK           = '3' // Used to acknowledge an event.
+	PacketTypeCONNECT_ERROR = '4' // Used during the connection to a namespace.
+	PacketTypeBINARY_EVENT  = '5' // Used to send binary data to the other side.
+	PacketTypeBINARY_ACK    = '6' // Used to acknowledge an event (the response includes binary data).
 
 	ptMin = '0'
 	ptMax = '6'

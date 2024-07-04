@@ -125,19 +125,23 @@ func (conn *Conn) writePacket(pktType byte, data []byte) error {
 	// NOTE it seems some servers does not support websocket.BinaryMessage
 	w, err := conn.wsconn.NextWriter(websocket.TextMessage)
 	if err != nil {
-		conn.addErr_(errors.Wrap(err, "ws next writer"))
+		err = errors.Wrap(err, "ws next writer")
+		conn.addErr_(err)
 		return err
 	}
 	if _, err = w.Write([]byte{byte(pktType)}); err != nil {
-		conn.addErr_(errors.Wrap(err, "ws write engine.io packet type"))
+		err = errors.Wrap(err, "ws write engine.io packet type")
+		conn.addErr_(err)
 		return err
 	}
 	if _, err = w.Write(data); err != nil {
-		conn.addErr_(errors.Wrap(err, "ws write engine.io data"))
+		err = errors.Wrap(err, "ws write engine.io data")
+		conn.addErr_(err)
 		return err
 	}
 	if err := w.Close(); err != nil {
-		conn.addErr_(errors.Wrap(err, "ws close writer"))
+		err = errors.Wrap(err, "ws close writer")
+		conn.addErr_(err)
 		return err
 	}
 	return nil
